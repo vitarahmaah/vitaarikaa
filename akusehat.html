@@ -1,0 +1,68 @@
+<html>
+
+<title> TUGAS PERMASALAHAN SPACIAL MODELLING</title>
+</head>
+<body>
+
+  <header>
+    <h1>PERUBAHAN PENGGUNAAN LAHAN DI KECAMATAN BENOWO DAN ASEMROWO TAHUN 2019 DAN 2023</h1>
+    <h2><font color="green"><marquee>SELAMAT DATANG</marquee></font></h2>
+
+
+    <h2>Project ini disusun oleh: </h2>
+    <h4>Vita Rahmatiyah (22040274034/2022 A) </h4>
+    <h4>Rihatus Sholihah (22040274049/2022 A) </h4>
+
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+	<div style="width: 80%; margin: auto;">
+        <canvas id="perubahanLahanChart"></canvas>
+    </div>
+</body>
+<script>
+// Data perubahan penggunaan lahan
+         var dataPerubahanLahan = [
+            { jenis: 'Pemukiman Tidak Teratur', pl2019: 1110.78, pl2023: 1110.89 },
+            { jenis: 'Pemukiman Teratur', pl2019: 81.9, pl2023: 81.9 },
+            { jenis: 'Tambak', pl2019: 2583, pl2023:  2581.58},
+            { jenis: 'Stadion GBT', pl2019: 35.51, pl2023: 35.51 },
+            { jenis: 'TPA', pl2019: 30, pl2023: 30 },
+            { jenis: 'Sawah', pl2019: 180.71, pl2023: 180.71 },
+            { jenis: 'Terminal', pl2019: 10.6, pl2023: 10.6 },
+            { jenis: 'Lahan Kosong', pl2019: 179.6, pl2023: 199.41 },
+			{ jenis: 'Vegetasi', pl2019: 9.8, pl2023: 13.1 },
+			{ jenis: 'Wilayah Industri', pl2019: 1533, pl2023: 1599.83 },
+        ];
+
+        // Inisialisasi chart
+        var ctx = document.getElementById('perubahanLahanChart').getContext('2d');
+        var perubahanLahanChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: dataPerubahanLahan.map(item => item.jenis),
+                datasets: [{
+                    label: 'PL 2019',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    data: dataPerubahanLahan.map(item => item.pl2019)
+                }, {
+                    label: 'PL 2023',
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1,
+                    data: dataPerubahanLahan.map(item => item.pl2023)
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+</script>
+</html>
